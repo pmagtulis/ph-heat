@@ -13,65 +13,6 @@ a {
   text-decoration: underline;
 }
 
-.tall img {
-  margin: 0 auto;
-  display: block;
-  max-width: 50%;
-}
-
-.mobile {
-  display: none;
-}
-
-
-#scrolly {
-  position: relative;
-  padding: 1rem;
-}
-
-.scrolly-overlay {
-  position: relative;
-  padding: 0;
-  max-width: 35rem;
-  margin: 0 auto;
-}
-
-.sticky-thing {
-  position: -webkit-sticky;
-  position: sticky;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  z-index: 0;
-  top: 0;
-  height: 100vh;
-  /* Center everything inside */
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.step {
-  margin: 0 auto 2rem auto;
-  margin-bottom: 25rem;
-  -webkit-transform: translate3d(0, 0, 0);
-  z-index: 999;
-  background-color: #eee;
-  background-color: #fff;
-  color: black;
-}
-
-.step p {
-  text-align: center;
-  padding: 1rem;
-  font-size: 1.25rem;
-}
-
-.hidden {
-  visibility: hidden;
-}
-
 .title {
   text-align: center !important;
   justify-content: center;
@@ -101,7 +42,6 @@ a {
   font-size: 11px;
 }
 
-
 .hidden {
   visibility: hidden;
 }
@@ -120,20 +60,134 @@ a {
   margin-left: 44%;
 }
 
-/* When it's less than 500 pixels wide */
-
-@media only screen and (max-width: 700px) and (min-width: 510px) {
-
-  .mobile {
-    display: none;
-  }
-  
+.scrolly-container {
+  position: relative;
+  margin-bottom: 1.2em;
 }
 
+.sticky-thing {
+  position: sticky;
+  top: 0;
+  transform: translate(0px, 0px);
+  z-index: 0;
+  height: 100svh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden;
+  /* Center everything inside */
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sticky-thing>img {
+  width: 100%;
+  height: 116%;
+  object-fit: cover;
+  display: flex;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scrolly-container video {
+  position: absolute;
+  top: 0;
+  height: auto;
+  width: 100%;
+}
+
+.sticky-thing iframe {
+  position: absolute;
+  top: 0;
+  max-width: 100%;
+  min-height: 100vh;
+}
+
+.steps-container {
+  transform: translate3d(0, 0, 0);
+  position: relative;
+  padding: 0;
+  z-index: 10;
+  max-width: 35rem;
+  margin: 0 auto;
+  padding-bottom: 4em;
+}
+
+.step {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50svh;
+  transform: translate(0px, 0px);
+}
+
+.step p {
+  text-align: left;
+}
+
+.step p:last-child {
+  padding: 0;
+}
+
+.step>* {
+  width: 700px;
+  margin-left: 1.3em;
+  margin-right: 1.3em;
+  text-align: center;
+  padding: 1.2em !important;
+  background-color: white;
+  -webkit-transform: translate3d(0, 0, 0);
+  z-index: 999;
+  opacity: 0.7;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #053061;
+}
+
+.sticky-thing>canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+}
+
+/* When it's less than 700 pixels wide, do normal scrollytelling */
+
+@media only screen and (min-width: 700px) {
+  .scrolly-container.side-by-side {
+      display: flex;
+  }
+
+  .scrolly-container.side-by-side>div {
+      flex-basis: 0;
+      flex-grow: 1;
+      flex-shrink: 1;
+      padding: 0.75em;
+  }
+
+  .scrolly-container.side-by-side .scrolly-overlay {
+      margin-top: 70vh;
+      order: 0;
+      /* Change these to adjust sizing options */
+      min-width: 15rem;
+      max-width: 20rem;
+  }
+
+  .scrolly-container.side-by-side .sticky-thing {
+      order: 1;
+      flex-grow: 2;
+  }
+}
 /* When it's less than 500 pixels wide */
 
-@media only screen and (max-width: 500px) and (min-width: 300px) {
 
+@media only screen and (max-width: 500px) and (min-width: 300px) {
   .desktop {
     display: none;
   }
@@ -155,33 +209,10 @@ a {
   .byline {
     text-align: center !important;
     justify-content: center;
-    position:relative;
+    position: relative;
     color: #333333;
     font-size: 16px;
-    background: #ffffff
-  }
-
-  .first-letter {
-    font-size: 50px;
-    line-height: 40px;
-    float: left;
-    text-indent: 0;
-  }
-
-  .tall-mobile {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .tall {
-    display: none;
-  }
-  
-  .tall-mobile img {
-    margin: 0 auto;
-    display: block;
-    max-width: 100%;
+    background: #ffffff;
   }
 
   .footer_container {
@@ -192,7 +223,32 @@ a {
     margin-left: 25%;
   }
 
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
+  }
+
+  .scrolly-container.side-by-side {
+    display: flex;
+  }
+
+  .scrolly-container.side-by-side > div {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.75em;
+  }
+
+  .scrolly-container.side-by-side .scrolly-overlay {
+    margin-top: 70vh;
+    order: 0;
+    /* Change these to adjust sizing options */
+    min-width: 15rem;
+    max-width: 20rem;
+  }
+
+  .scrolly-container.side-by-side .sticky-thing {
+    order: 1;
+    flex-grow: 2;
   }
 }
