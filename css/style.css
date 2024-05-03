@@ -14,6 +14,12 @@ a {
   text-decoration: underline;
 }
 
+#ncr-image > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .title {
   text-align: center !important;
   justify-content: center;
