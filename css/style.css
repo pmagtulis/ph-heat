@@ -1,6 +1,7 @@
 html,
 body {
   font: 'Roboto';
+  text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -144,7 +145,7 @@ a {
   background-color: white;
   -webkit-transform: translate3d(0, 0, 0);
   z-index: 999;
-  opacity: 0.7;
+  opacity: 0.8;
   border-style: solid;
   border-width: 3px;
   border-color: #053061;
@@ -225,10 +226,10 @@ a {
     margin-left: 25%;
   }
 
-  html,
+  /* html,
   body {
     overflow-x: hidden;
-  }
+  } */
 
   .scrolly-container.side-by-side {
     display: flex;
