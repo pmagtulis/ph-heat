@@ -9,6 +9,10 @@ body {
   margin: 0 auto;
 }
 
+/* .display-none-mobile {
+  display: none;
+} */
+
 a {
   color: #212529;
   text-decoration: underline;
@@ -237,4 +241,9 @@ a {
   .scrolly-container {
     margin-bottom: 0.5em;
   }
+
+  /* .display-none-mobile {
+    display: block;
+  } */
+
 }
