@@ -101,6 +101,16 @@ a {
   transform: translate(0px, 0px);
 }
 
+#step1 {
+  margin-top: -50svh;
+}
+
+.first-letter {
+  font-size: 55px;
+  line-height: 55px;
+  float: left;
+}
+
 .step p {
   text-align: left;
 }
